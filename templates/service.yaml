@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "facetraining.fullname" . }}
+  name: facetraining
   labels:
     {{- include "facetraining.labels" . | nindent 4 }}
 spec:
