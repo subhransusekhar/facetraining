@@ -88,7 +88,8 @@ redis:
   fullnameOverride: redis
   usePassword: false
   auth:
-    enabled: false
+    enabled: true
+    password: password
   persistence:
     enabled: false
   slave:
