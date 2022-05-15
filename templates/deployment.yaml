@@ -35,21 +35,21 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
             - name: {{"REDIS_HOST"}}
-              value: {{ .Values.redis.fullname }}
+              value: "{{  .Values.redis.fullname }}-master"
             - name: {{"REDIS_PASSWORD"}}
-              value: "{{ .Values.redis.password | default '' }}"
+              value: {{ .Values.redis.password }}
           ports:
             - name: http
               containerPort: 8009
               protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /
-              port: http
-          readinessProbe:
-            httpGet:
-              path: /
-              port: http
+          # livenessProbe:
+          #   httpGet:
+          #     path: /
+          #     port: http
+          # readinessProbe:
+          #   httpGet:
+          #     path: /
+          #     port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}

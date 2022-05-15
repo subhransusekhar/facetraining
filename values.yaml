@@ -83,5 +83,19 @@ tolerations: []
 affinity: {}
 
 redis:
+  fullname: redis
+  architecture: standalone
   fullnameOverride: redis
   usePassword: false
+  auth:
+    enabled: false
+  persistence:
+    enabled: false
+  slave:
+    persistence:
+      enabled: false
+  master:
+    persistence:
+      enabled: false
+  cluster:
+    enabled: false
